@@ -83,7 +83,7 @@ DATABASES = {
         'PASSWORD': 'Gruodziukas@1983',
         'HOST':'localhost',
         'PORT':'3306',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        
     }
 }
 
