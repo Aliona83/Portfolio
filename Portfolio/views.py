@@ -5,8 +5,8 @@ from django.shortcuts import render
 
 from django.shortcuts import render
 
-def index(request):
-    return render(request, 'Portfolio/index.html')
+def main(request):
+    return render(request, 'Portfolio/main.html')
 def about_me(request):
     return render(request, 'Portfolio/about_me.html')
 def projects(request):
