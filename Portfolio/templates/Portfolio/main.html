@@ -1,50 +1,15 @@
+
+{% extends 'Portfolio/base.html' %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}My Website{% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <div class="d-flex flex-column flex-md-row">
-        <div class="sidebar">
-            <div class="navbar">
-                <img src="{% static 'img/0.jpg' %}" alt="Your Image" class="logo">
-                <ul>
-                    <li><a href="{% url 'main' %}">Home</a></li>
-                    <li><a href="{% url 'about_me' %}">About Me</a></li>
-                    <li><a href="{% url 'projects' %}">Projects</a></li>
-                    <li><a href="{% url 'contact_me' %}">Contact Me</a></li>
-                </ul>
-            </div>
-            <div class="icons">
-                <a href="#" target="">
-                    <i class="fab fa-linkedin fa-2x"></i>
-                </a>
-                <a href="#" target="">
-                    <i class="fab fa-github fa-2x"></i>
-                </a>
-            </div>
-        </div>
+{% block title %}Home - My Website{% endblock %}
 
-        <div class="main_container d-flex align-items-center justify-content-center">
-            {% block content %}
-            <div class="text-center">
-                <h1>Hi my name is Aliona Janusko</h1>
-                <h4>I am a Full Stack Developer.</h4>
-            </div>
-            {% endblock %}
-        </div>
-        <a href="path/to/your/resume.pdf" class="resume-button">Resume</a>
-</body>
-        {% comment %} <button class="resume"> My Resume</button> {% endcomment %}
-    </div>
+{% block content %}
+<div class="text-center">
+    <h1>Hi, my name is Aliona Janusko</h1>
+    <h4>I am a Full Stack Developer.</h4>
+</div>
+{% endblock %}
 
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
+{% block resume_link %}
+<a href="{% static 'img/Resume-2.pdf' %}" class="resume-button" target="_blank">Resume</a>
+{% endblock %}
