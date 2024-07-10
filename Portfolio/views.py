@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import About_me
+from .models import About_me, Experience
 
 from django.shortcuts import render
 
@@ -11,10 +11,13 @@ def main(request):
 
 def about_me(request):
     about_me = About_me.objects.first()
+    experiences = Experience.objects.all()
     context = {
         'title': about_me.title,
-        'description': about_me.description}
+        'description': about_me.description,
+        'experiences': experiences,}
     return render(request, 'Portfolio/about_me.html',context)
+
 def projects(request):
     return render(request, 'Portfolio/projects.html')
 

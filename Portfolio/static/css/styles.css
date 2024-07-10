@@ -35,7 +35,7 @@ body, html {
     margin-left: 300px; /* Margin to accommodate the fixed sidebar width */
     padding: 20px;
     width: calc(100% - 300px); /* Adjust width to not overlap with sidebar */
-    height: 100vh; /* Full height */
+    /* height: 100vh;  */
     display: flex;
     align-items: center;
     justify-content: center;

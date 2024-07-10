@@ -4,8 +4,27 @@
 
 
 {% block content %}
-<div class="container text-center">
-    <h1>{{title}} </h1>
+<div class="container-fluid, text-center">
+    <div class="row">
+<div class="col-12 col-sm-10 mx-5 my-5">
+    <h1 class="about m-5">{{title}} </h1>
     <p>{{description}}</p>
+    <div class="experience-container text-center mt-5">
+        <h1>My Experience</h1>
+        <div class="experience-container text-center mt-5">
+            {% for experience in experiences %}
+            <div class="experience-item mb-5">
+                <h4> <i class="fa-regular fa-folder-open"></i> {{ experience.job_title }} </h4 >
+                    <h6>{{ experience.company }}</h6>
+                <p><strong>From:</strong> {{ experience.start_date }} <strong>To:</strong> {% if experience.end_date %}{{ experience.end_date }}{% else %}Present{% endif %}</p>
+                <p>{{ experience.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
+</div>    
+</div>
+
+
 {% endblock %}
