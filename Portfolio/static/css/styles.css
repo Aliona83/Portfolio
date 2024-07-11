@@ -109,7 +109,7 @@ a {
 }
 
 /* Responsive Styles */
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
 
     .sidebar {
         width: 100%;
@@ -130,19 +130,20 @@ a {
     }
 
     .navbar ul li a {
-        padding: 5px 5px;
-        font-size: 17px;
+        font-weight: bold;
+        font-size: 26px;
     }
 }
 
-@media only screen and (max-width: 320px) {
-.main_container h1 {
-    font-size: 35px;
-    height: 25vh;
+@media only screen and (min-width: 320px) {
+.main_container  {
+    font-size: 20px;
+    height: 25vh; 
+    width: 100%;
 }
 
 .main_container h4 {
-    font-size: 25px;
+    font-size: 20px;
 
 }
     .navbar ul li a {
@@ -157,4 +158,58 @@ a {
     
     }
 }
+} */
+@media screen and  (min-width: 320px) and (max-width: 575px) {
+
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main_container {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 10px;
+        font-size: 20px;
+        height: 25vh; 
+        height: 100%;
+    }
+
+    .navbar ul {
+        display:grid;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar ul li a {
+        font-weight: bold;
+        font-size: 26px;
+    }
+
+    
+}
+
+@media screen and  (min-width: 575px) and (max-width: 768px)
+{
+    
+    .navbar ul {
+        display:grid;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navbar ul li a {
+        font-size: 26px;
+        color: blueviolet;
+    }
+    .main_container {
+        width: 100%;
+        padding-top: 10px;
+        font-size: 18px;
+        /* height: 25vh;  */
+        height: 100%;
+    }
+  
+
 }
