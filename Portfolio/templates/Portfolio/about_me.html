@@ -2,29 +2,26 @@
 {% load static %}
 {% block title %}About {% endblock %}
 
-
 {% block content %}
-<div class="about-container d-fex, text-center px-2">
-    <div class="col">
-<div class="col-12 col-md-10  my-5">
-    <h1 class="about m-3">{{title}} </h1>
-    <p>{{description}}</p>
-    <div class="experience-container text-center mt-5">
-        <h1>My Experience</h1>
-        <div class="experience-container text-center mt-5 text-wrap">
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="about-container my-5">
+        <h1 class="about-title text-center">{{ title }}</h1>
+        <p class="about-description">{{ description }}</p>
+        <div class="experience-container mt-5">
+            <h2>My Experience</h2>
             {% for experience in experiences %}
-            <div class="experience-item mb-5">
-                <h4> <i class="fa-regular fa-folder-open"></i> {{ experience.job_title }} </h4 >
-                    <h6>{{ experience.company }}</h6>
-                <p><strong>From:</strong> {{ experience.start_date }} <strong>To:</strong> {% if experience.end_date %}{{ experience.end_date }}{% else %}Present{% endif %}</p>
-                <p>{{ experience.description }}</p>
+            <div class="experience-item mb-4">
+                <h3>
+                    <i id="folder-icon-{{ forloop.counter0 }}" class="fa-regular fa-folder" onclick="toggleExperienceDetails({{ forloop.counter0 }})"></i> {{ experience.job_title }}
+                </h3>
+                <h4>{{ experience.company }}</h4>
+                <div id="experience-details-{{ forloop.counter0 }}" class="experience-details collapse">
+                    <p><strong>From:</strong> {{ experience.start_date }} <strong>To:</strong> {% if experience.end_date %}{{ experience.end_date }}{% else %}Present{% endif %}</p>
+                    <p>{{ experience.description }}</p>
+                </div>
             </div>
             {% endfor %}
         </div>
     </div>
-</div>
-</div>    
-</div>
-
-
+</main>
 {% endblock %}
