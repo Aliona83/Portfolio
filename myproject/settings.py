@@ -70,17 +70,23 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+db_from_env = dj_database_url.config(
+    conn_max_age=600,
+    ssl_require=True,
+    options={'unix_socket': '/tmp/mysql.sock', 'read_default_file': '/etc/mysql/my.cnf'}
+    )
 DATABASES = {
     'default': db_from_env
 }
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'Portfolio',      # Name of your MySQL database
 #         'USER': 'root',           # Database username
 #         'PASSWORD': 'Gruodziukas@1983',   # Database password
-#         'HOST': 'localhost',      # Database host (leave empty for localhost)
-#         'PORT': '3306',           # Database port (leave empty for default)
+#         'HOST': '',      # Database host (leave empty for localhost)
+#         'PORT': '',           # Database port (leave empty for default)
 #     }
 # }
 
