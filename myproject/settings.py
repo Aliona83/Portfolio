@@ -78,7 +78,7 @@ DATABASES = {
         'NAME': 'Portfolio',      # Name of your MySQL database
         'USER': 'root',           # Database username
         'PASSWORD': 'Gruodziukas@1983',   # Database password
-        'HOST': '127.0.0.1',      # Database host (leave empty for localhost)
+        'HOST': 'localhost',      # Database host (leave empty for localhost)
         'PORT': '3306',           # Database port (leave empty for default)
     }
  }
