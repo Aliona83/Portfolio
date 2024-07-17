@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 
 
@@ -81,7 +82,9 @@ DATABASES = {
         'HOST': '127.0.0.1',      # Database host (leave empty for localhost)
         'PORT': '3306',           # Database port (leave empty for default)
     }
- }
+}
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
