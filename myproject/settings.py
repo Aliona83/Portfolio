@@ -82,7 +82,7 @@ DATABASES = {
         'HOST': '127.0.0.1',      # Database host (leave empty for localhost)
         'PORT': '3306',           # Database port (leave empty for default)
     }
-# }
+ }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
