@@ -84,6 +84,12 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 #     }
 # }
 db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',  # Use SQLite as default (Heroku prefers PostgreSQL)
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 DATABASES['default'].update(db_from_env)
 
 # Password validation
