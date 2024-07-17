@@ -73,23 +73,23 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'Portfolio',      # Name of your MySQL database
-#         'USER': 'root',           # Database username
-#         'PASSWORD': 'Gruodziukas@1983',   # Database password
-#         'HOST': '127.0.0.1',      # Database host (leave empty for localhost)
-#         'PORT': '3306',           # Database port (leave empty for default)
-#     }
-# }
-db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Use SQLite as default (Heroku prefers PostgreSQL)
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Portfolio',      # Name of your MySQL database
+        'USER': 'root',           # Database username
+        'PASSWORD': 'Gruodziukas@1983',   # Database password
+        'HOST': '127.0.0.1',      # Database host (leave empty for localhost)
+        'PORT': '3306',           # Database port (leave empty for default)
     }
 }
+db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',  # Use SQLite as default (Heroku prefers PostgreSQL)
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES['default'].update(db_from_env)
 
 # Password validation
@@ -132,6 +132,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Portfolio/static'),
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
