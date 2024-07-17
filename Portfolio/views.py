@@ -10,7 +10,8 @@ def main(request):
     return render(request, 'Portfolio/main.html')
 
 def about_me(request):
-    about_me = About_me.objects.first()
+    about_me = get_object_or_404(About_me)
+    # about_me = About_me.objects.first()
     experiences = Experience.objects.all()
     context = {
         'title': about_me.title,
