@@ -72,18 +72,35 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Portfolio',      # Name of your MySQL database
-        'USER': 'root',           # Database username
-        'PASSWORD': 'Gruodziukas@1983',   # Database password
-        'HOST': '127.0.0.1',      # Database host (leave empty for localhost)
-        'PORT': '3306',           # Database port (leave empty for default)
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)
     }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'Portfolio',
+            'USER': 'root',
+            'PASSWORD': 'Gruodziukas@1983',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+        }
+    }
+    DATABASES = {
+    'default': dj_database_url.config(default='your_default_db_url')
 }
-db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'Portfolio',      # Name of your MySQL database
+#         'USER': 'root',           # Database username
+#         'PASSWORD': 'Gruodziukas@1983',   # Database password
+#         'HOST': '127.0.0.1',      # Database host (leave empty for localhost)
+#         'PORT': '3306',           # Database port (leave empty for default)
+#     }
+# }
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',  # Use SQLite as default (Heroku prefers PostgreSQL)
