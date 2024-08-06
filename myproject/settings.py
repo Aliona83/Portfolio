@@ -72,42 +72,18 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',    # Replace with your PostgreSQL database name
+        'USER': 'myuser',    # Replace with your PostgreSQL user
+        'PASSWORD': 'Gruodziukas@1983',  # Replace with your PostgreSQL password
+        'HOST': 'localhost',  # Set to your PostgreSQL server address
+        'PORT': '5432',       # Default PostgreSQL port
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'Portfolio',
-            'USER': 'root',
-            'PASSWORD': 'Gruodziukas@1983',
-            'HOST': '127.0.0.1',
-            'PORT': '3306',
-        }
-    }
-    DATABASES = {
-    'default': dj_database_url.config(default='your_default_db_url')
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'Portfolio',      # Name of your MySQL database
-#         'USER': 'root',           # Database username
-#         'PASSWORD': 'Gruodziukas@1983',   # Database password
-#         'HOST': '127.0.0.1',      # Database host (leave empty for localhost)
-#         'PORT': '3306',           # Database port (leave empty for default)
-#     }
-# }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',  # Use SQLite as default (Heroku prefers PostgreSQL)
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
